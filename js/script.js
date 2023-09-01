@@ -7,14 +7,28 @@ const loadCategories = async () => {
 
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("category-container");
-  categoryContainer.classList = `text-center space-x-3 md:space-x-5 pb-10`;
+  categoryContainer.classList = "text-center space-x-3 md:space-x-5 pb-10";
 
   categories.forEach((category) => {
     const button = document.createElement("button");
-    button.innerHTML = `<button onclick = "loadCategoryItem('${category.category_id}')" class="bg-[#25252526] px-5 py-2 rounded-lg text-[#252525B2] text-base font-medium">${category.category}</button>`;
+    button.innerHTML = `<button onclick="activateTab(this, '${category.category_id}')" class="btn bg-[#25252526] px-5 py-2 rounded-lg text-[#252525B2] text-base font-medium border-none normal-case hover:bg-[#FF1F3D] hover:text-white">${category.category}</button>`;
     categoryContainer.appendChild(button);
   });
 };
+
+let previousButton;
+
+function activateTab(button, categoryId) {
+  if (previousButton) {
+    previousButton.classList.remove("bg-[#FF1F3D]", "text-white");
+    previousButton.classList.add("bg-[#25252526]", "text-[#252525B2]");
+  }
+  button.classList.remove("bg-[#25252526]", "text-[#252525B2]");
+  button.classList.add("bg-[#FF1F3D]", "text-white");
+
+  previousButton = button;
+  loadCategoryItem(categoryId);
+}
 
 let catID;
 
