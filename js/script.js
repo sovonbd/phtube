@@ -7,7 +7,7 @@ const loadCategories = async () => {
 
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("category-container");
-  categoryContainer.classList = "text-center space-x-3 md:space-x-5 pb-10";
+  categoryContainer.classList = `text-center space-x-3 md:space-x-5 pb-10`;
 
   categories.forEach((category) => {
     const button = document.createElement("button");
