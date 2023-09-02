@@ -49,7 +49,7 @@ const displayItem = (items) => {
       const div = document.createElement("div");
       div.classList = `card flex flex-col relative`;
       div.innerHTML = `
-        <figure><img class="h-48 lg:h-44 w-full rounded-lg" src="${item.thumbnail}" alt="Shoes" /></figure>
+        <figure><img class="h-48 w-full rounded-lg" src="${item.thumbnail}" alt="Shoes" /></figure>
         ${
           item.others?.posted_date
             ? `<span class="bg-[#171717] p-1 rounded-lg text-[10px] font-normal text-white absolute  bottom-[104px] right-3">${Math.floor(item.others.posted_date / 3600)} hrs ${Math.floor(
